@@ -63,7 +63,7 @@ def test_between_bounds2():
     assert is_angle_between(35, 199, 200)
     assert is_angle_between(35, 200, 200)
     assert not is_angle_between(35, 201, 200)
-    
+
 
 def test_between_large_vals1():
     assert is_angle_between(-160, 2, -355)
