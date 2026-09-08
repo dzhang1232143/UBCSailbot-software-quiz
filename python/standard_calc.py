@@ -15,7 +15,7 @@ def bound_to_180(angle):
         angle += 360
     while angle >= 180:
         angle -= 360
-    return angle
+    return float(angle)
 
 
 def is_angle_between(first_angle, middle_angle, second_angle):
@@ -33,7 +33,8 @@ def is_angle_between(first_angle, middle_angle, second_angle):
     Returns:
         bool: True when `middle_angle` is not in the reflex angle of `first_angle` and `second_angle`, false otherwise.
     """
+    from math import isclose
     dif_angle_between = abs(bound_to_180(first_angle - second_angle))
     dif_angle_from_first = abs(bound_to_180(first_angle - middle_angle))
     dif_angle_from_second = abs(bound_to_180(second_angle - middle_angle))
-    return dif_angle_from_first + dif_angle_from_second <= dif_angle_between
+    return isclose(dif_angle_from_first + dif_angle_from_second, dif_angle_between)
